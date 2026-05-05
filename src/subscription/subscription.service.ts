@@ -38,10 +38,11 @@ export class SubscriptionService {
     if (!actor) notFound('User', actorUserId);
 
     if (actor.companyId !== companyId)
-      forbidden(`User '${actorUserId}' does not belong to company '${companyId}'`);
+      forbidden(
+        `User '${actorUserId}' does not belong to company '${companyId}'`,
+      );
 
-    if (!actor.isAdmin)
-      forbidden(`User '${actorUserId}' is not an admin`);
+    if (!actor.isAdmin) forbidden(`User '${actorUserId}' is not an admin`);
   }
 
   getLatest(companyId: string): SubscriptionResponseDto {
@@ -87,7 +88,10 @@ export class SubscriptionService {
     return this.toDto(this.store.saveSubscription(sub));
   }
 
-  cancel(companyId: string, dto: CancelSubscriptionDto): SubscriptionResponseDto {
+  cancel(
+    companyId: string,
+    dto: CancelSubscriptionDto,
+  ): SubscriptionResponseDto {
     this.resolveAdminActor(companyId, dto.actorUserId);
 
     const active = this.store.getActiveSubscriptionForCompany(companyId);

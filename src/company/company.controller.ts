@@ -34,7 +34,9 @@ export class CompanyController {
   @Get()
   @ApiOperation({ summary: 'List companies (paginated)' })
   @ApiOkResponse({ description: 'Paginated company list' })
-  list(@Query() query: PaginationQueryDto): PaginatedResponseDto<CompanyResponseDto> {
+  list(
+    @Query() query: PaginationQueryDto,
+  ): PaginatedResponseDto<CompanyResponseDto> {
     return this.companyService.list(query.page, query.limit);
   }
 

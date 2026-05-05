@@ -4,11 +4,15 @@ import { DocumentBuilder, SwaggerModule } from '@nestjs/swagger';
 import { AppModule } from './app.module';
 
 async function bootstrap() {
-   const nestLogger = new Logger();
+  const nestLogger = new Logger();
   const app = await NestFactory.create(AppModule);
 
   app.useGlobalPipes(
-    new ValidationPipe({ whitelist: true, forbidNonWhitelisted: true }),
+    new ValidationPipe({
+      whitelist: true,
+      forbidNonWhitelisted: true,
+      transform: true,
+    }),
   );
 
   nestLogger.log(`🚀 Environment dev`);
@@ -27,4 +31,3 @@ async function bootstrap() {
   await app.listen(3001);
 }
 bootstrap();
-

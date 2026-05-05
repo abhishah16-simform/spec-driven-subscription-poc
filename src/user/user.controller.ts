@@ -36,9 +36,13 @@ export class UserController {
   constructor(private readonly userService: UserService) {}
 
   @Get()
-  @ApiOperation({ summary: 'List users (paginated, optional companyId filter)' })
+  @ApiOperation({
+    summary: 'List users (paginated, optional companyId filter)',
+  })
   @ApiOkResponse({ description: 'Paginated user list' })
-  list(@Query() query: UserListQueryDto): PaginatedResponseDto<UserResponseDto> {
+  list(
+    @Query() query: UserListQueryDto,
+  ): PaginatedResponseDto<UserResponseDto> {
     return this.userService.list(query.page, query.limit, query.companyId);
   }
 
@@ -53,7 +57,9 @@ export class UserController {
   @Post()
   @ApiOperation({ summary: 'Create user' })
   @ApiCreatedResponse({ type: UserResponseDto })
-  @ApiBadRequestResponse({ description: 'Validation error or company not found' })
+  @ApiBadRequestResponse({
+    description: 'Validation error or company not found',
+  })
   @ApiConflictResponse({ description: 'Email already in use' })
   create(@Body() dto: CreateUserDto): UserResponseDto {
     return this.userService.create(dto);

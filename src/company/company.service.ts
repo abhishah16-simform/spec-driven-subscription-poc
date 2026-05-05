@@ -33,9 +33,7 @@ export class CompanyService {
     excludeId?: string,
   ): void {
     const all = this.store.getAllCompanies();
-    const nameConflict = all.find(
-      (c) => c.name === name && c.id !== excludeId,
-    );
+    const nameConflict = all.find((c) => c.name === name && c.id !== excludeId);
     if (nameConflict) conflict(`Company name '${name}' is already in use`);
 
     const legalNameConflict = all.find(
@@ -85,7 +83,8 @@ export class CompanyService {
       ...existing,
       name: newName,
       legalName: newLegalName,
-      websiteUrl: dto.websiteUrl !== undefined ? dto.websiteUrl : existing.websiteUrl,
+      websiteUrl:
+        dto.websiteUrl !== undefined ? dto.websiteUrl : existing.websiteUrl,
       email: dto.email !== undefined ? dto.email : existing.email,
       phone: dto.phone !== undefined ? dto.phone : existing.phone,
       address: dto.address !== undefined ? dto.address : existing.address,

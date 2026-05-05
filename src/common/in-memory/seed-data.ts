@@ -56,7 +56,7 @@ export interface SeedData {
 
 export function buildSeedData(): SeedData {
   const past = new Date(Date.now() - 30 * 24 * 60 * 60 * 1000).toISOString();
-  const older = new Date(Date.now() - 60 * 24 * 60 * 60 * 1000).toISOString();
+  const sixtyDaysAgo = new Date(Date.now() - 60 * 24 * 60 * 60 * 1000).toISOString();
 
   const companies: Company[] = [
     {
@@ -494,11 +494,11 @@ export function buildSeedData(): SeedData {
       planName: 'Basic Yearly',
       price: 2500,
       status: 'CANCELED',
-      startedAt: older,
+      startedAt: sixtyDaysAgo,
       canceledAt: past,
       createdByUserId: U3_ID,
       canceledByUserId: U3_ID,
-      createdAt: older,
+      createdAt: sixtyDaysAgo,
       updatedAt: past,
     },
     {
@@ -536,11 +536,11 @@ export function buildSeedData(): SeedData {
       planName: 'Standard Monthly',
       price: 750,
       status: 'CANCELED',
-      startedAt: older,
+      startedAt: sixtyDaysAgo,
       canceledAt: past,
       createdByUserId: U9_ID,
       canceledByUserId: U9_ID,
-      createdAt: older,
+      createdAt: sixtyDaysAgo,
       updatedAt: past,
     },
     {
@@ -578,11 +578,11 @@ export function buildSeedData(): SeedData {
       planName: 'Standard Yearly',
       price: 7500,
       status: 'CANCELED',
-      startedAt: older,
+      startedAt: sixtyDaysAgo,
       canceledAt: past,
       createdByUserId: U15_ID,
       canceledByUserId: U15_ID,
-      createdAt: older,
+      createdAt: sixtyDaysAgo,
       updatedAt: past,
     },
   ];

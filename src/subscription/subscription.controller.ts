@@ -33,7 +33,9 @@ export class SubscriptionController {
     summary: 'Buy subscription for company (admin-only via actorUserId)',
   })
   @ApiCreatedResponse({ type: SubscriptionResponseDto })
-  @ApiBadRequestResponse({ description: 'Validation or plan/business-rule error' })
+  @ApiBadRequestResponse({
+    description: 'Validation or plan/business-rule error',
+  })
   @ApiForbiddenResponse({ description: 'Actor not admin or wrong company' })
   @ApiNotFoundResponse({ description: 'Company or actor not found' })
   @ApiConflictResponse({ description: 'Active subscription already exists' })
@@ -46,7 +48,8 @@ export class SubscriptionController {
 
   @Post(':companyId/cancel')
   @ApiOperation({
-    summary: 'Cancel active subscription for company (admin-only via actorUserId)',
+    summary:
+      'Cancel active subscription for company (admin-only via actorUserId)',
   })
   @ApiOkResponse({ type: SubscriptionResponseDto })
   @ApiBadRequestResponse({ description: 'Validation or business-rule error' })

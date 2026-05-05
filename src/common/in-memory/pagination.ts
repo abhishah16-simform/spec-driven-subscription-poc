@@ -1,4 +1,7 @@
-import { PaginationMetaDto, PaginatedResponseDto } from '../dto/api-response.dto';
+import {
+  PaginationMetaDto,
+  PaginatedResponseDto,
+} from '../dto/api-response.dto';
 
 export function paginate<T>(
   items: T[],

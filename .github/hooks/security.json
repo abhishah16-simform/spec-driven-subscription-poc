@@ -1,0 +1,14 @@
+{
+    "hooks": [
+        {
+            "type": "sessionStart",
+            "name": "log-session-start",
+            "command": "echo \"Session started at $(date)\" >> .github/hooks/session.log"
+        },
+        {
+            "type": "preToolUse",
+            "name": "log-tool-usage",
+            "command": "echo \"Tool: $TOOL_NAME | Time: $(date)\" >> .github/hooks/tool.log"
+        }
+    ]
+}
